@@ -131,7 +131,6 @@ class Invoice(models.Model):
                 "progress": "posted",
                 "journal_detail": self.get_journal_detail()}
 
-        print data
         self.env["journal.entry"].create(data)
 
     @api.multi

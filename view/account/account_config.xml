@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_account_config_tree" model="ir.ui.view">
+        <field name="name">account.config.tree</field>
+        <field name="model">account.config</field>
+        <field name="arch" type="xml">
+            <tree string="Configuration">
+                <field name="cgst_id"/>
+                <field name="sgst_id"/>
+                <field name="igst_id"/>
+                <field name="bank_id"/>
+                <field name="round_off_id"/>
+                <field name="pf_id"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_account_config_form" model="ir.ui.view">
+        <field name="name">account.config.form</field>
+        <field name="model">account.config</field>
+        <field name="arch" type="xml">
+            <form string="Configuration">
+                <sheet>
+                    <group>
+                        <field name="cgst_id"/>
+                        <field name="sgst_id"/>
+                        <field name="igst_id"/>
+                        <field name="bank_id"/>
+                        <field name="round_off_id"/>
+                        <field name="pf_id"/>
+                        <field name="company_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_account_config" model="ir.actions.act_window">
+        <field name="name">Configuration</field>
+        <field name="res_model">account.config</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

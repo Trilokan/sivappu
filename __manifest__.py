@@ -184,8 +184,10 @@
         # Account
         "view/account/account.xml",
         "view/account/journal.xml",
+        "view/account/account_config.xml",
         "view/account/journal_entry.xml",
         "view/account/journal_detail.xml",
+        "view/account/receive_payment.xml",
 
         # Menu
         "view/menu/menu.xml",

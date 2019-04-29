@@ -64,6 +64,26 @@
                                 </form>
                             </field>
                         </page>
+                        <page string="Accounting">
+                            <group>
+                                <field name="payment_type"/>
+                                <field name="balance"/>
+                            </group>
+                            <field name="journal_items">
+                                <tree>
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="invoice_id"/>
+                                    <field name="person_id"/>
+                                    <field name="account_id"/>
+                                    <field name="description"/>
+                                    <field name="credit"/>
+                                    <field name="debit"/>
+                                    <field name="progress"/>
+                                    <field name="comment"/>
+                                </tree>
+                            </field>
+                        </page>
                     </notebook>
                     <group>
                         <div style="float: left; width: 100%;">

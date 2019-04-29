@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_register_payment_receive_tree" model="ir.ui.view">
+        <field name="name">register.payment.receive.tree</field>
+        <field name="model">register.payment</field>
+        <field name="arch" type="xml">
+            <tree string="Receive payments">
+                <field name="name"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_register_payment_receive_form" model="ir.ui.view">
+        <field name="name">register.payment.receive.form</field>
+        <field name="model">register.payment</field>
+        <field name="arch" type="xml">
+            <form string="Receive payments">
+                <sheet>
+                    <h2><field name="name"/></h2>
+                    <field name="progress" widget="statusbar" style="float: right;padding: 20px;"/>
+                    <group col="4">
+                        <field name="date"/>
+                        <field name="payment_type" invisible="0"/>
+                        <field name="person_id"/>
+                        <field name="invoice_id" attrs="{'required': [('is_cdr', '=', True)]}" domain="[('person_id', '=', person_id), ('payment_type', '=', payment_type)]"/>
+                        <field name="is_amount"/>
+                        <field name="is_cdr"/>
+                        <field name="note_id" attrs="{'required': [('is_cdr', '=', True)], 'invisible': ['|',('is_amount', '=', True),('is_cdr', '=', False)]}"/>
+                        <field name="amount" attrs="{'invisible': ['|',('is_cdr', '=', True),('is_amount', '=', False)]}"/>
+                    </group>
+                    <button name="trigger_register_payment" string="Register Payment" type="object"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_register_payment_receive" model="ir.actions.act_window">
+        <field name="name">Receive payments</field>
+        <field name="res_model">register.payment</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('payment_type', '=', 'receivable')]</field>
+        <field name="context">{'default_payment_type': 'receivable'}</field>
+        <field name="view_id" ref="view_register_payment_receive_tree"/>
+    </record>
+
+     <record model="ir.actions.act_window.view" id="action_register_payment_receive_form">
+        <field eval="2" name="sequence"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_register_payment_receive_form" />
+        <field name="act_window_id" ref="action_register_payment_receive"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_register_payment_receive_tree">
+        <field eval="1" name="sequence"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_register_payment_receive_tree"/>
+        <field name="act_window_id" ref="action_register_payment_receive"/>
+    </record>
+
+
+</odoo>

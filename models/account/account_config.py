@@ -12,6 +12,7 @@ class AccountConfig(models.Model):
     cgst_id = fields.Many2one(comodel_name="arc.account", string="CGST")
     sgst_id = fields.Many2one(comodel_name="arc.account", string="SGST")
     igst_id = fields.Many2one(comodel_name="arc.account", string="IGST")
+    bank_id = fields.Many2one(comodel_name="arc.account", string="Bank")
     round_off_id = fields.Many2one(comodel_name="arc.account", string="Round Off")
     pf_id = fields.Many2one(comodel_name="arc.account", string="Packing Forwarding")
 

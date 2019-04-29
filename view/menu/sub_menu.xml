@@ -243,15 +243,20 @@
     <menuitem id="hospital_account_account" name="Stores" parent="hospital_account" sequence="10"/>
     <menuitem id="hospital_account_account_account" name="Accounts" action="action_arc_account" parent="hospital_account_account" sequence="10"/>
     <menuitem id="hospital_account_account_journal" name="Journals" action="action_arc_journal" parent="hospital_account_account" sequence="20"/>
+    <menuitem id="hospital_account_account_config" name="Configuration" action="action_account_config" parent="hospital_account_account" sequence="30"/>
     <!--<menuitem id="hospital_account_account_year" name="Financial Year" action="" parent="hospital_account_account" sequence="30"/>-->
     <!--<menuitem id="hospital_account_account_period" name="Period" action="" parent="hospital_account_account" sequence="40"/>-->
 
     <!--Menu : Accounts / Journals-->
-    <menuitem id="hospital_account_journal" name="Journals" parent="hospital_account" sequence="10"/>
+    <menuitem id="hospital_account_journal" name="Journals" parent="hospital_account" sequence="20"/>
     <menuitem id="hospital_account_journal_entry" name="Journal Entry" action="action_journal_entry" parent="hospital_account_journal" sequence="10"/>
     <menuitem id="hospital_account_journal_item" name="Journal Item" action="action_journal_detail" parent="hospital_account_journal" sequence="10"/>
 
     <!--Menu : Accounts / Payments-->
+    <menuitem id="hospital_account_payment" name="Register Payments" parent="hospital_account" sequence="30"/>
+    <menuitem id="hospital_account_payment_receive" name="Receive Payments" action="action_register_payment_receive" parent="hospital_account_payment" sequence="10"/>
+    <menuitem id="hospital_account_payment_pay" name="Send Payments" parent="hospital_account_payment" sequence="10"/>
+
     <!--Menu : Accounts / Reports-->
 
 </odoo>
