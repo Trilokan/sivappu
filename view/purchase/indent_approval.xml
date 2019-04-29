@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_indent_detail_tree" model="ir.ui.view">
+        <field name="name">indent.detail.tree</field>
+        <field name="model">indent.detail</field>
+        <field name="arch" type="xml">
+            <tree string="Purchase Indent Approval">
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="approved_by"/>
+                <field name="approved_on"/>
+                <field name="approval_progress"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_indent_detail_form" model="ir.ui.view">
+        <field name="name">indent.detail.form</field>
+        <field name="model">indent.detail</field>
+        <field name="arch" type="xml">
+            <form string="Purchase Indent Approval">
+                <sheet>
+                    <div id="s_header">
+                        <h1>Purchase Indent Approval</h1>
+                    </div>
+                    <field name="approval_progress" widget="statusbar" style="float: right;padding: 20px;"/>
+                    <h2><field name="name"/></h2>
+                    <group col="4">
+                        <field name="indent_id" readonly="1"/>
+                        <field name="product_id" readonly="1"/>
+                        <field name="description" readonly="1"/>
+                        <field name="uom_id" readonly="1"/>
+                        <field name="request_quantity" readonly="1"/>
+                        <field name="approved_quantity" attrs="{'readonly': [('approval_progress', '!=', 'draft')]}"/>
+                        <field name="approved_by"/>
+                        <field name="approved_on"/>
+                        <field name="attachment_ids" widget="many2many_tags" attrs="{'readonly': [('approval_progress', '!=', 'draft')]}"/>
+
+                    </group>
+                    <field name="comment" placeholder="Comment.." attrs="{'readonly': [('approval_progress', '!=', 'draft')]}"/>
+
+                    <footer>
+                        <button name="trigger_approve" string="Approve" type="object" attrs="{'invisible': [('approval_progress', '!=', 'draft')]}"/>
+                    </footer>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_indent_detail" model="ir.actions.act_window">
+        <field name="name">Purchase Indent Approval</field>
+        <field name="res_model">indent.detail</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,131 @@
+body::before {
+
+        content: '';
+        height: 256px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #009688;
+        background-image: url("https://i1.wp.com/retirementtimesnewsletter.com/wp-content/uploads/2017/08/cropped-istock-624878906.jpg?ssl=1");
+        background-repeat: no-repeat;
+        background-size: 100% 256px;
+        z-index: -1;
+        }
+
+.o_sub_menu_logo {
+  height: 250px;
+}
+
+.o_content {
+  margin: 0px 20px 0px 20px;
+}
+
+.o_control_panel{
+  background: none;
+}
+
+.breadcrumb{
+  background: none;
+  position: absolute;
+  top: 165px;
+  padding: 10px;
+
+}
+
+.breadcrumb > .active {
+  font: 0 1.25em Helvetica;
+  text-shadow: 0 2px 3px rgba(255, 255, 255, 0.3), 0 -1px 2px rgba(0, 0, 0, 0.2);
+  color: #d7dee1;
+  font-weight: 600;
+  font-size: 25px
+}
+
+.o_control_panel .breadcrumb > li > a {
+  text-shadow: 0 2px 3px rgba(255, 255, 255, 0.3), 0 -1px 2px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.moki{
+  height: 100px;
+  padding: 30px;
+}
+
+.moki_2{
+ height: 50px;
+
+}
+
+.o_cp_searchview{
+  position: absolute;
+  height: 50px;
+  top: 70px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.o_searchview{
+  height: 40px;
+  opacity: 0.6;
+}
+
+.o_searchview_input {
+  height: 35px;
+
+}
+
+.o_searchview > .o_searchview_more {
+  font-size: 20px;
+  top: 8px;
+  right: 10px;
+}
+
+.o_web_client > .o_main > .o_sub_menu {
+  border: none;
+}
+
+
+.o_web_client > .o_main >.o_main_content > .o_control_panel{
+  border: none;
+}
+
+
+
+
+@media only screen and (max-width: 800px) {
+  .breadcrumb {
+    display: none
+  }
+
+  .moki{ height: 0px; }
+  .moki_2{ height: 0px; display:none;}
+
+  .btn-group.o_search_options{ display: none;}
+
+  .o_cp_right > .btn-group.o_search_options{ display: none;}
+
+
+  .o_cp_searchview {
+    top: 32px;
+  }
+
+  .o_control_panel > .o_cp_searchview {width: 100%;}
+  .molitext { display: none; }
+
+  .o_control_panel { overflow-x: scroll;}
+
+  .o_cp_switch_buttons {display: none;}
+
+  .o_cp_buttons > div >.o_form_buttons_edit >.o_form_button_save { border-radius: 50px;}
+  .o_cp_buttons > div >.o_form_buttons_edit > .o_form_button_cancel { border-radius: 50px;}
+  .o_cp_buttons > div >.o_form_buttons_edit { border-radius: 50px;}
+
+}
+
+
+
+

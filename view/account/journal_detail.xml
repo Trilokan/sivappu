@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_journal_detail_tree" model="ir.ui.view">
+        <field name="name">journal.detail.tree</field>
+        <field name="model">journal.detail</field>
+        <field name="arch" type="xml">
+            <tree string="Journal Detail">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="invoice_id"/>
+                <field name="person_id"/>
+                <field name="account_id"/>
+                <field name="description"/>
+                <field name="credit"/>
+                <field name="debit"/>
+                <field name="progress"/>
+                <field name="comment"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_journal_detail_form" model="ir.ui.view">
+        <field name="name">journal.detail.form</field>
+        <field name="model">journal.detail</field>
+        <field name="arch" type="xml">
+            <form string="Journal Detail">
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                        <field name="name"/>
+                        <field name="invoice_id"/>
+                        <field name="person_id"/>
+                        <field name="account_id"/>
+                        <field name="description"/>
+                        <field name="credit"/>
+                        <field name="debit"/>
+                        <field name="progress"/>
+                        <field name="comment"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_journal_detail" model="ir.actions.act_window">
+        <field name="name">Journal Detail</field>
+        <field name="res_model">journal.detail</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

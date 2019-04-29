@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_month_attendance_tree" model="ir.ui.view">
+        <field name="name">month.attendance.tree</field>
+        <field name="model">month.attendance</field>
+        <field name="arch" type="xml">
+            <tree string="Monthly Attendance" create="false" edit="false" delete="false">
+                <field name="period_id"/>
+                <field name="progress"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_month_attendance_form" model="ir.ui.view">
+        <field name="name">month.attendance.form</field>
+        <field name="model">month.attendance</field>
+        <field name="arch" type="xml">
+            <form string="Monthly Attendance" create="false" edit="false" delete="false">
+                <sheet>
+                    <div id="s_header">
+                        <h1>Monthly Attendance</h1>
+                    </div>
+                    <div id="p_header">
+                        <field name="progress" widget="statusbar" style="float: right;padding: 20px;"/>
+                    </div>
+                    <group>
+                        <field name="period_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Month Details">
+                            <field name="month_detail" readonly="1">
+                                <tree editable="bottom" create="false">
+                                    <field name="date"/>
+                                    <field name="progress"/>
+                                    <field name="month_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <footer>
+                        <button name="trigger_open" string="Open Monthly Attendance" type="object"
+                                attrs="{'invisible': [('progress', '!=', 'draft')]}"/>
+                        <button name="trigger_close" string="Close Monthly Attendance" type="object"
+                                attrs="{'invisible': [('progress', '!=', 'open')]}"/>
+                    </footer>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_month_attendance" model="ir.actions.act_window">
+        <field name="name">Monthly Attendance</field>
+        <field name="res_model">month.attendance</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

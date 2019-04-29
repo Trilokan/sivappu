@@ -1,0 +1,302 @@
+---------------------------------------------------
+                 Hospital Management
+---------------------------------------------------
+
+1. Hospital
+
+    1.1 Hospitality
+        1.1.1 Admission
+        1.1.2 Discharge
+        1.1.3 Appointment
+        1.1.4 Bed Status
+        1.1.5 Ambulance
+
+    1.2 Contact
+        1.2.1 Doctor
+        1.2.2 Patient
+        1.2.3 Nurse
+        1.2.4 Staff
+        1.2.5 Driver
+        1.2.6 Vendor
+        1.2.7 Service
+
+    1.3 Register
+        1.3.1 Patient
+        1.3.2 Employee
+        1.3.3 Supplier
+
+    1.4 Notice Board
+        1.4.1 Notice
+        1.4.2 Events
+        1.4.3 Vacancy Position
+
+
+2. Patient
+
+    2.1 Register
+        2.1.1 Patient
+
+    2.2 In-Patient
+        2.2.1 Admission
+        2.2.2 Discharge
+        2.2.3 Treatment
+        2.2.4 Prescription
+        2.2.5 Reminder
+        2.2.6 Visitors
+
+    2.3 Out-Patient
+        2.3.1 Appointment
+        2.3.2 Treatment
+        2.3.3 Prescription
+
+    2.4 Operation
+        2.4.1 Operation
+        2.4.1 OT Status
+        2.4.1 Operation Theater
+        2.4.1 Procedure
+
+    2.5 Wards
+        2.5.1 Wards
+        2.5.2 Beds
+        2.5.3 Patient Shifting
+
+    2.6 Bills
+        2.6.1 Treatment Bill
+        2.6.2 Pharmacy Bill
+        2.6.2 Laboratory Bill
+        2.6.2 Other Bill
+
+    2.7 Report
+        2.7.1 Treatment Report
+        2.7.2 LAB Report
+        2.7.3 Payment Status
+
+
+3. Staff
+
+    3.1 Doctor
+        3.1.1 Doctor Availability
+        3.1.2 Doctor Timing
+
+    3.2 Appointment
+        3.2.1 My Appointment
+        3.2.2 OPT Appointment
+        3.2.3 OT Appointment
+        3.2.4 Meetings
+
+    3.3 Employee
+        3.3.1 Shift
+        3.3.2 Shift Schedule
+        3.3.3 Attendance
+        3.3.4 Work Sheet
+        3.3.5 Time Sheet
+        3.3.6 Time Application
+        3.3.7 Leave Application
+        3.3.8 Permission
+        3.3.9 On-Duty
+        3.3.10 Comp-off
+        3.3.11 Leave Availability
+
+    3.4 Notes
+        3.4.1 Notes
+        3.4.2 Reminder
+
+    3.5 Notice Board
+        3.5.1 Notice
+        3.5.2 Events
+        3.5.3 Vacancy Position
+
+
+4. Human Resources
+
+    4.1 Employee
+        4.1.1 Employee Register
+        4.1.2 ID Card
+        4.1.3 Department
+        4.1.4 Designation
+        4.1.5 Employee Category
+        4.1.6 Identities
+        4.1.7 Qualification
+        4.1.8 Experience
+
+    4.2 Recruitment
+        4.2.1 Resume Bank
+        4.2.2 Vacancy Position
+        4.2.3 Appointment Order
+
+    4.3 Time Management
+        4.3.1 Shift Schedule
+        4.3.2 Monthly Attendance
+        4.3.3 Week Schedule
+        4.3.4 Daily Attendance
+        4.3.5 Work Sheet
+        4.3.6 Time Sheet
+        4.3.7 Time Application
+        4.3.8 Add Employee To Shift
+        4.3.9 Holiday Change
+        4.3.10 Time Configuration
+
+    4.4 Leave Management
+        4.4.1 Leave Application
+        4.4.2 Comp-Off
+        4.4.3 Permission
+        4.4.4 On-Duty
+        4.4.5 Leave Availability
+        4.4.6 Leave Level
+        4.4.7 Leave Type
+        4.4.8 Leave Configuration
+
+    4.5 Payroll
+        4.5.1 Employee Pay
+        4.5.2 Employee Pay Update
+        4.5.3 Payslip
+        4.5.4 Payroll Generation
+        4.5.5 Salary Structure
+        4.5.6 Salary Rule
+        4.5.7 Salary Rule Slab
+        4.5.8 Salary Rule Code
+
+    4.6 HR Action
+        4.6.1 Recruitment
+        4.6.2 Promotion
+        4.6.3 Complaints
+        4.6.4 Resignation
+
+
+5. Inventory
+
+    5.1 Product
+        5.1.1 Product
+        5.1.2 Product Group
+        5.1.3 Product Sub-Group
+        5.1.4 Product Category
+        5.1.5 UOM
+        5.1.6 Tax
+        5.1.7 Location
+        5.1.8 Warehouse
+
+    5.2 Stores
+        5.2.1 Stock Adjustment
+        5.2.2 Store Request
+        5.2.3 Store Issue
+        5.2.4 Store Return
+        5.2.5 Store Accept
+        5.2.6 Stock Move
+        5.2.7 Material Receipt
+        5.2.8 Material Delivery
+        5.2.9 Configuration
+
+    5.3 Asserts
+        5.3.1 Asserts
+        5.3.1 Asserts Capitalisation
+        5.3.1 Asserts Maintenance
+        5.3.1 Asserts Reminder
+
+    5.3 Report
+
+
+6. Procurement
+
+    6.1 Purchase
+        6.1.1 Purchase Indent
+        6.1.2 Indent Approval
+        6.1.3 Vendor Selection
+        6.1.4 Quotation
+        6.1.5 Purchase Order
+        6.1.6 Invoice
+
+    6.2 Purchase Return
+        6.2.1 PO Return
+        6.2.2 Invoice
+
+    6.3 Sales
+        6.3.1 Sale Order
+        6.3.2 Invoice
+
+    6.4 Sales Return
+        6.4.1 SO Return
+        6.4.2 Invoice
+
+    6.5 Store
+        6.5.1 Product
+        6.5.2 Material Receipt
+        6.5.3 Material Inspect
+
+
+    6.3 Report
+        6.3.1 Current Stock
+        6.3.2 Stock Evaluation
+        6.3.3 Stock Statement
+        6.3.4 Stock Analysis
+        6.3.5 Stock Movement
+        6.3.6 Pharmacy Stock
+
+7. Pharmacy-LAB
+
+    7.1 Pharmacy
+        7.1.1 Pharmacy Bill
+        7.1.2 Material Delivery
+        7.1.3 Payments
+
+    7.2 LAB
+        7.2.1 Laboratory Bill
+        7.2.2 Test
+        7.2.3 Test
+
+    7.3 Report
+
+
+8. Accounts
+
+    8.1 Accounts
+        8.1 Accounts
+        8.2 Journals
+        8.3 Financial Year
+        8.4 Period
+
+    8.2 Journals
+        8.2.1 Journal Entry
+        8.2.2 Journal Item
+        8.2.3 Reconciliation
+        8.2.4 Ledger
+
+    8.3 Payments
+        8.3.1 Receive Payments
+        8.3.2 Send Payments
+
+    8.4 Report
+       8.4.1 Aged Balance
+       8.4.2 Chart Of Accounts
+       8.4.3 Profit Loss
+       8.4.4 Balance Sheet
+       8.4.5 Payment Status
+
+
+9. Reports
+
+    9.1 Patient
+        9.1.1 Treatment Report
+        9.1.2 LAB Report
+        9.1.3 Payment Status
+
+    9.2 Employee
+        9.2.1 Payslip
+        9.2.2 Employee Payroll
+        9.2.3 Attendance
+        9.2.4 Work Sheet
+        9.2.5 Leave Availability
+
+    9.3 Accounts
+       9.3.1 Aged Balance
+       9.3.2 Chart Of Accounts
+       9.3.3 Profit Loss
+       9.3.4 Balance Sheet
+       9.3.5 Payment Status
+
+    9.6 Inventory
+
+    9.7 Purchase -D
+
+    9.8 Sales -D
+
+

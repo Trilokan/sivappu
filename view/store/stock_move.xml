@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_arc_move_tree" model="ir.ui.view">
+        <field name="name">arc.move.tree</field>
+        <field name="model">arc.move</field>
+        <field name="arch" type="xml">
+            <tree string="Stock Move">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="source_id"/>
+                <field name="destination_id"/>
+                <field name="product_id"/>
+                <field name="description"/>
+                <field name="uom_id"/>
+                <field name="quantity"/>
+                <field name="unit_price"/>
+                <field name="progress"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_arc_move_form" model="ir.ui.view">
+        <field name="name">arc.move.form</field>
+        <field name="model">arc.move</field>
+        <field name="arch" type="xml">
+            <form string="Stock Move">
+                <sheet>
+                    <div id="s_header">
+                        <h1>Stock Move</h1>
+                    </div>
+                    <div id="p_header">
+                        <field name="progress" widget="statusbar" style="float: right;padding: 20px;"/>
+                    </div>
+                    <h2><field name="name"/></h2>
+                    <group string="Product">
+                        <field name="date" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="product_id" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="description" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="uom_id" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                    </group>
+                    <group col="4" string="Transaction">
+                        <field name="source_id" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="destination_id" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="quantity" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="unit_price" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="reference" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_arc_move" model="ir.actions.act_window">
+        <field name="name">Stock Move</field>
+        <field name="res_model">arc.move</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

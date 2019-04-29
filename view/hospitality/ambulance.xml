@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_arc_ambulance_tree" model="ir.ui.view">
+        <field name="name">arc.ambulance.tree</field>
+        <field name="model">arc.ambulance</field>
+        <field name="arch" type="xml">
+            <tree string="Ambulance">
+                <field name="name"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_arc_ambulance_form" model="ir.ui.view">
+        <field name="name">arc.ambulance.form</field>
+        <field name="model">arc.ambulance</field>
+        <field name="arch" type="xml">
+            <form string="Ambulance">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="driver_id"/>
+                        <field name="patient_id"/>
+                        <field name="progress"/>
+                        <field name="is_cancel"/>
+                        <field name="distance"/>
+                        <field name="charges_km"/>
+                        <field name="others"/>
+                        <field name="total_amount"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="source_contact"/>
+                            <field name="source_contact_2"/>
+                            <field name="source_address"/>
+                            <field name="source_landmark"/>
+                        </group>
+                        <group>
+                            <field name="destination_contact"/>
+                            <field name="destination_contact_2"/>
+                            <field name="destination_address"/>
+                            <field name="destination_landmark"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_arc_ambulance" model="ir.actions.act_window">
+        <field name="name">Ambulance</field>
+        <field name="res_model">arc.ambulance</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

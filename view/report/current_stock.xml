@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Form -->
+    <record id="view_report_current_stock_form" model="ir.ui.view">
+        <field name="name">report.current.stock.form</field>
+        <field name="model">report.current.stock</field>
+        <field name="arch" type="xml">
+            <form string="Current Stock">
+                <group>
+                    <field name="product_ids" widget="many2many_tags"/>
+                </group>
+                <footer>
+                    <button name="trigger_current_stock" string="Generate Report" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_report_current_stock" model="ir.actions.act_window">
+        <field name="name">Current Stock</field>
+        <field name="res_model">report.current.stock</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

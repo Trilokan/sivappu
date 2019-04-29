@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_arc_appointment_ot_tree" model="ir.ui.view">
+        <field name="name">arc.appointment.ot.tree</field>
+        <field name="model">arc.appointment</field>
+        <field name="arch" type="xml">
+            <tree string="OT">
+                <field name="date"/>
+                <field name="person_id"/>
+                <field name="appointment_type" invisble="1"/>
+                <field name="appointment_for"/>
+                <field name="reason"/>
+                <field name="comment"/>
+                <field name="is_cancel"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_arc_appointment_ot_form" model="ir.ui.view">
+        <field name="name">arc.appointment.ot.form</field>
+        <field name="model">arc.appointment</field>
+        <field name="arch" type="xml">
+            <form string="OT">
+                <sheet>
+                    <field name="is_cancel" widget="statusbar" style="float: right;padding: 20px;" attrs="{'invisible':[('is_cancel', '=', 'cancel')]}"/>
+                    <group col="4">
+                        <field name="date"/>
+                        <field name="person_id" string="Doctor"/>
+                        <field name="appointment_for" string="Patient"/>
+                        <field name="operation_id" string="Operation"/>
+                        <field name="reason" domain="[('appointment_type', '=', appointment_type)]"/>
+                    </group>
+                    <field name="appointment_type" invisible="1"/>
+                    <field name="comment" placeholder="Comment..."/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_arc_appointment_ot_calendar" model="ir.ui.view">
+        <field name="name">arc.appointment.ot.calendar</field>
+        <field name="model">arc.appointment</field>
+        <field name="arch" type="xml">
+            <calendar string="OT"
+                      color="person_id"
+                      date_start="date"
+                      mode="month"
+                      quick_add="False">
+                <field name="person_id"/>
+                <field name="appointment_for"/>
+                <field name="reason"/>
+            </calendar>
+        </field>
+    </record>
+    
+    <!-- Action -->
+    <record id="action_arc_appointment_ot" model="ir.actions.act_window">
+        <field name="name">OT</field>
+        <field name="res_model">arc.appointment</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">calendar,tree,form</field>
+        <field name="domain">[('appointment_type', '=', 'ot')]</field>
+        <field name="context">{'default_appointment_type': 'ot'}</field>
+        <field name="view_id" ref="view_arc_appointment_ot_tree"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_arc_appointment_ot_form">
+        <field eval="2" name="sequence"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_arc_appointment_ot_form" />
+        <field name="act_window_id" ref="action_arc_appointment_ot"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_arc_appointment_ot_tree">
+        <field eval="1" name="sequence"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_arc_appointment_ot_tree"/>
+        <field name="act_window_id" ref="action_arc_appointment_ot"/>
+    </record>
+
+
+</odoo>

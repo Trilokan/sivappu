@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_arc_account_tree" model="ir.ui.view">
+        <field name="name">arc.account.tree</field>
+        <field name="model">arc.account</field>
+        <field name="arch" type="xml">
+            <tree string="Account">
+                <field name="name"/>
+                <field name="account_uid"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_arc_account_form" model="ir.ui.view">
+        <field name="name">arc.account.form</field>
+        <field name="model">arc.account</field>
+        <field name="arch" type="xml">
+            <form string="Account">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="account_uid"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_arc_account" model="ir.actions.act_window">
+        <field name="name">Account</field>
+        <field name="res_model">arc.account</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_leave_level_tree" model="ir.ui.view">
+        <field name="name">leave.level.tree</field>
+        <field name="model">leave.level</field>
+        <field name="arch" type="xml">
+            <tree string="Leave Level">
+                <field name="name"/>
+                <field name="level_uid"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_leave_level_form" model="ir.ui.view">
+        <field name="name">leave.level.form</field>
+        <field name="model">leave.level</field>
+        <field name="arch" type="xml">
+            <form string="Leave Level">
+                <sheet>
+                    <div id="s_header">
+                        <h1>Leave Level</h1>
+                    </div>
+                    <group col="4">
+                        <field name="name"/>
+                        <field name="level_uid"/>
+                    </group>
+                    <field name="item_ids">
+                        <tree editable="bottom">
+                            <field name="type_id"/>
+                            <field name="credit"/>
+                            <field name="sequence"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_leave_level" model="ir.actions.act_window">
+        <field name="name">Leave Level</field>
+        <field name="res_model">leave.level</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

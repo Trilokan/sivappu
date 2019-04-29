@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_leave_config_tree" model="ir.ui.view">
+        <field name="name">leave.config.tree</field>
+        <field name="model">leave.config</field>
+        <field name="arch" type="xml">
+            <tree string="Leave Configuration">
+                <field name="lop_id"/>
+                <field name="co_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_leave_config_form" model="ir.ui.view">
+        <field name="name">leave.config.form</field>
+        <field name="model">leave.config</field>
+        <field name="arch" type="xml">
+            <form string="Leave Configuration">
+                <sheet>
+                    <div id="s_header">
+                        <h1>Leave Configuration</h1>
+                    </div>
+                    <group>
+                        <field name="lop_id"/>
+                        <field name="co_id"/>
+                    </group>
+                    <field name="leave_availability_template"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_leave_config" model="ir.actions.act_window">
+        <field name="name">Leave Configuration</field>
+        <field name="res_model">leave.config</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

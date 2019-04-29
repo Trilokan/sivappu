@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_arc_religion_tree" model="ir.ui.view">
+        <field name="name">arc.religion.tree</field>
+        <field name="model">arc.religion</field>
+        <field name="arch" type="xml">
+            <tree string="Religion">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_arc_religion_form" model="ir.ui.view">
+        <field name="name">arc.religion.form</field>
+        <field name="model">arc.religion</field>
+        <field name="arch" type="xml">
+            <form string="Religion">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_arc_religion" model="ir.actions.act_window">
+        <field name="name">Religion</field>
+        <field name="res_model">arc.religion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

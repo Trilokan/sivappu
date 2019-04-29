@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_arc_address_employee_tree" model="ir.ui.view">
+        <field name="name">arc.address.employee.tree</field>
+        <field name="model">arc.address</field>
+        <field name="arch" type="xml">
+            <tree string="Contact Details" create="false" delete="false">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_arc_address_employee_form" model="ir.ui.view">
+        <field name="name">arc.address.employee.form</field>
+        <field name="model">arc.address</field>
+        <field name="arch" type="xml">
+            <form string="Contact Details" create="false" delete="false">
+                <sheet>
+                    <div id="s_header">
+                        <h1>Contact Details</h1>
+                    </div>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="name"/>
+                        <field name="relation"/>
+                        <field name="mobile"/>
+                        <field name="email"/>
+                    </group>
+                    <group>
+                        <group string="Address">
+                            <div style="width: 85%">
+                                <div>
+                                    <div class="address_format">
+                                        <field name="door_no" style="width: 30%" placeholder="Door No"/>
+                                        <field name="building_name" style="width: 70%" placeholder="Building Name"/>
+                                    </div>
+                                    <field name="street_1" placeholder="Street 1"/>
+                                    <field name="street_2" placeholder="Street 2"/>
+                                    <field name="locality" placeholder="Locality"/>
+                                    <field name="city" placeholder="City"/>
+                                    <field name="landmark" placeholder="Landmark"/>
+                                    <div class="address_format">
+                                        <field name="country_id" style="width: 45%" placeholder="Country"/>
+                                        <field name="state_id" style="width: 55%" placeholder="State"/>
+                                    </div>
+                                    <field name="pin_code" style="width: 55%" placeholder="PIN Code"/>
+                                </div>
+                            </div>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_arc_address_employee" model="ir.actions.act_window">
+        <field name="name">Contact Details</field>
+        <field name="res_model">arc.address</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

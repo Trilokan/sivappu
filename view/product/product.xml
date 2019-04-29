@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_arc_product_tree" model="ir.ui.view">
+        <field name="name">arc.product.tree</field>
+        <field name="model">arc.product</field>
+        <field name="arch" type="xml">
+            <tree string="Product">
+                <field name="name"/>
+                <field name="product_uid"/>
+                <field name="product_group_id"/>
+                <field name="sub_group_id"/>
+                <field name="uom_id"/>
+                <field name="category_id"/>
+                <field name="hsn_code"/>
+                <field name="stock_count"/>
+                <field name="stock_value"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_arc_product_form" model="ir.ui.view">
+        <field name="name">arc.product.form</field>
+        <field name="model">arc.product</field>
+        <field name="arch" type="xml">
+            <form string="Product">
+                    <div id="p_header">
+                        <field name="progress" widget="statusbar" style="float: right;padding: 20px;"/>
+                    </div>
+                    <field name="image" widget="image"  class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        </h1>
+                        <label for="product_uid" class="oe_edit_only"/>
+                        <h2>
+                            <field name="product_uid" readonly="1"/>
+                        </h2>
+                    </div>
+                    <group col="4">
+                        <field name="category_id"
+                               options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"
+                               attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="product_group_id"
+                               options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"
+                               attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="sub_group_id"
+                               options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"
+                               domain="[('product_group_id', '=', product_group_id)]"
+                               attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="uom_id"
+                               options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"
+                               attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="hsn_code" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                    </group>
+                    <moris>
+                        hi
+                    </moris>
+                    <notebook>
+                        <page string="Inventory">
+                            <field name="warehouse_ids" readonly="1">
+                                <tree>
+                                    <field name="location_id"/>
+                                    <field name="quantity"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Description">
+                            <group>
+                                <field name="description" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                            </group>
+                        </page>
+
+                        <page string="Accounting">
+                            <group col="4">
+                                <field name="payable_id" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                                <field name="receivable_id" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                            </group>
+                        </page>
+
+                        <page string="Detail">
+                            <button type="object" name="action_view_assert" class="oe_stat_button" icon="fa-truck">
+                                <field name="assert_count" widget="statinfo" string="Assert"/>
+                            </button>
+                            <button type="object" name="action_view_assert" class="oe_stat_button" icon="fa-truck">
+                                <field name="incoming_shipment" widget="statinfo" string="Incoming Shipment"/>
+                            </button>
+                            <button type="object" name="action_view_assert" class="oe_stat_button" icon="fa-truck">
+                                <field name="purchase_order_count" widget="statinfo" string="Purchase Order"/>
+                            </button>
+                            <button type="object" name="action_view_assert" class="oe_stat_button" icon="fa-truck">
+                                <field name="sale_order_count" widget="statinfo" string="Sale Order"/>
+                            </button>
+                            <button type="object" name="action_view_assert" class="oe_stat_button" icon="fa-truck">
+                                <field name="purchase_invoice_count" widget="statinfo" string="Purchase Invoice"/>
+                            </button>
+                            <button type="object" name="action_view_assert" class="oe_stat_button" icon="fa-truck">
+                                <field name="sale_invoice_count" widget="statinfo" string="Sale Invoice"/>
+                            </button>
+                            <button type="object" name="action_view_assert" class="oe_stat_button" icon="fa-truck">
+                                <field name="stock_count" widget="statinfo"/>
+                            </button>
+                            <button type="object" name="action_view_assert" class="oe_stat_button" icon="fa-truck">
+                                <field name="stock_value" widget="statinfo" string="Stock Value"/>
+                            </button>
+                            <button type="object" name="action_view_assert" string="Inventory" class="oe_stat_button" icon="fa-truck"/>
+                        </page>
+
+                    </notebook>
+                    <footer>
+                        <button name="trigger_confirm" string="Confirm" type="object"
+                                attrs="{'invisible': [('progress', '!=', 'draft')]}"/>
+                    </footer>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="view_arc_product_kanban" model="ir.ui.view">
+        <field name="name">view.arc.product.kanban</field>
+        <field name="model">arc.product</field>
+        <field name="arch" type="xml">
+            <kanban create="false">
+                <field name="image"/>
+                <field name="name"/>
+                <field name="product_uid"/>
+                <field name="hsn_code"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click card">
+
+                            <!-- Header -->
+                            <!-- Content-->
+                            <div class="card-header">
+                                <div class="card-header__avatar">
+                                    <t t-if="record.image.value">
+                                        <img t-attf-src="data:image/png;base64, #{record.image.value}" class="oe_module_icon"/>
+                                    </t>
+                                    <t t-else="">
+                                        <img t-attf-src="/web/static/src/img/placeholder.png" class="oe_module_icon"/>
+                                    </t>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-content__username"><field name="name"/></div>
+                                <div class="card-content__username"><field name="product_uid"/></div>
+                                <!--<div class="card-content__bio"><field name="product_uid"/></div>-->
+                            </div>
+                            <!-- Footer-->
+                            <div class="card-footer">
+                                <div class="card-footer__pens">
+                                    <span>231</span> <div class="label">Pens</div>
+                                </div>
+                                <div class="card-footer__followers">
+                                    <span>0</span> <div class="label">Followers</div>
+                                </div>
+                                <div class="card-footer__following">
+                                    <span>0</span> <div class="label">Following</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </t>
+              </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!-- Action -->
+    <record id="action_arc_product" model="ir.actions.act_window">
+        <field name="name">Product</field>
+        <field name="res_model">arc.product</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+</odoo>

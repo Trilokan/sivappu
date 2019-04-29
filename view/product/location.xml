@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_store_location_tree" model="ir.ui.view">
+        <field name="name">store.location.tree</field>
+        <field name="model">store.location</field>
+        <field name="arch" type="xml">
+            <tree string="Store Location">
+                <field name="name"/>
+                <field name="location_uid"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_store_location_form" model="ir.ui.view">
+        <field name="name">store.location.form</field>
+        <field name="model">store.location</field>
+        <field name="arch" type="xml">
+            <form string="Store Location">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="location_uid"/>
+                        <field name="location_left"/>
+                        <field name="location_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_store_location" model="ir.actions.act_window">
+        <field name="name">Store Location</field>
+        <field name="res_model">store.location</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

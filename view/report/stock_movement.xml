@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Form -->
+    <record id="view_report_stock_movement_form" model="ir.ui.view">
+        <field name="name">report.stock.movement.form</field>
+        <field name="model">report.stock.movement</field>
+        <field name="arch" type="xml">
+            <form string="Stock Movement">
+                <group>
+                    <field name="from_date"/>
+                    <field name="till_date"/>
+                    <field name="product_id"/>
+                </group>
+                <footer>
+                    <button name="trigger_stock_movement" string="Generate Report" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_report_stock_movement" model="ir.actions.act_window">
+        <field name="name">Stock Movement</field>
+        <field name="res_model">report.stock.movement</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,172 @@
+body::before {
+
+        content: '';
+        height: 265px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #009688;
+        z-index: -1;
+        }
+
+.o_control_panel{
+  background: none;
+}
+
+.breadcrumb{
+  background: none;
+  height: 100px;
+  position: relative;
+  top: 160px;
+  padding-left: 30px;
+}
+
+.breadcrumb > .active {
+    color: white;
+}
+
+.o_cp_right{
+  position: relative;
+  top: 50px;
+  padding-left: 30px;
+
+}
+
+.o_control_panel .breadcrumb > li > a {
+
+    color: white;
+    cursor: pointer;
+}
+
+.o_view_manager_content{
+  margin: 50px 30px 0px 30px;
+}
+
+.o_searchview {
+  background: none;
+}
+
+
+
+
+====================================
+
+
+.sarh {
+  height: 100px;
+}
+
+.o_control_panel {
+  margin: 20px;
+}
+
+.o_content {
+  margin: 20px;
+}
+
+body::before {
+
+        content: '';
+        height: 265px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #009688;
+        z-index: -1;
+        }
+.o_control_panel{
+  background: none;
+}
+
+.breadcrumb{
+  background: none;
+  position: absolute
+}
+
+.o_cp_searchview{
+  position: absolute;
+}
+
+.o_searchview_input {
+  height: 40px;
+}
+
+.o_searchview > .o_searchview_more {
+  top: 12px;
+}
+
+==============================================
+
+
+
+
+
+.moki{
+  height: 275px;
+}
+
+.moki_2{
+  height: 100px;
+}
+
+.o_control_panel {
+  margin: 0px 20px 0px 20px;
+}
+
+.o_content {
+  margin: 0px 20px 0px 20px;
+}
+
+body::before {
+
+        content: '';
+        height: 280px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #009688;
+        z-index: -1;
+        }
+
+.o_sub_menu_logo {
+  height: 250px;
+}
+.o_control_panel{
+  background: none;
+}
+
+.breadcrumb{
+  background: none;
+  position: absolute;
+    top: 200px;
+}
+
+.o_cp_searchview{
+  position: absolute;
+  height: 50px;
+  top: 70px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.o_searchview{
+  height: 40px;
+  background-color: red;
+}
+
+.o_searchview_input {
+  height: 35px;
+  background-color: #24867c1a;
+}
+
+.o_searchview > .o_searchview_more {
+  font-size: 20px;
+  top: 8px;
+  right: 10px;
+}

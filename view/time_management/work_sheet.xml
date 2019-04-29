@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_work_sheet_tree" model="ir.ui.view">
+        <field name="name">work.sheet.tree</field>
+        <field name="model">work.sheet</field>
+        <field name="arch" type="xml">
+            <tree string="Work Sheet" create="false" edit="false" delete="false">
+                <field name="person_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_work_sheet_form" model="ir.ui.view">
+        <field name="name">work.sheet.form</field>
+        <field name="model">work.sheet</field>
+        <field name="arch" type="xml">
+            <form string="Work Sheet" create="false" edit="false" delete="false">
+                <sheet>
+                    <div id="s_header">
+                        <h1>Work Sheet</h1>
+                    </div>
+                    <group>
+                        <field name="person_id"/>
+                        <field name="month_id"/>
+                        <field name="month_days"/>
+                        <field name="schedule_days"/>
+                        <field name="leave_taken"/>
+                        <field name="lop_days"/>
+                    </group>
+                    <notebook>
+                        <page string="Leave Details">
+                            <field name="leave_details" readonly="1">
+                                <tree editable="bottom" create="false">
+                                    <field name="sequence" invisible="1"/>
+                                    <field name="type_id"/>
+                                    <field name="opening"/>
+                                    <field name="credit"/>
+                                    <field name="reconcile"/>
+                                    <field name="closing"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_work_sheet" model="ir.actions.act_window">
+        <field name="name">Work Sheet</field>
+        <field name="res_model">work.sheet</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

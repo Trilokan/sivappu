@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Menu : Hospital-->
+    <menuitem id="hospital_hospital" name="Hospital" sequence="10"/>
+    <menuitem id="hospital_patient" name="Patient" sequence="20"/>
+    <menuitem id="hospital_employee" name="Employee" sequence="30"/>
+    <menuitem id="hospital_hr" name="Human Resources" sequence="40"/>
+    <menuitem id="hospital_inventory" name="Inventory" sequence="50"/>
+    <menuitem id="hospital_procurement" name="Procurement" sequence="60"/>
+    <menuitem id="hospital_pharmacy" name="Pharmacy" sequence="70"/>
+    <menuitem id="hospital_account" name="Accounts" sequence="80"/>
+    <menuitem id="hospital_report" name="Reports" sequence="90"/>
+
+</odoo>

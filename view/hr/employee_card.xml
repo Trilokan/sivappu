@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Kanban -->
+    <record id="view_hr_employee_card_kanban" model="ir.ui.view">
+        <field name="name">hr.employee.card.kanban</field>
+        <field name="model">hr.employee</field>
+        <field name="arch" type="xml">
+            <kanban create="false">
+                <field name="image"/>
+                <field name="name"/>
+                <field name="employee_uid"/>
+                <field name="mobile"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="department_id"/>
+                <field name="designation_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click card">
+
+                            <!-- Header -->
+                            <div class="card-header">
+                                <div class="card-header__avatar">
+                                    <t t-if="record.image.value">
+                                        <img t-attf-src="data:image/png;base64, #{record.image.value}" class="oe_module_icon"/>
+                                    </t>
+                                </div>
+                            </div>
+
+                            <!-- Content-->
+                            <div class="card-content">
+                                <div class="card-content__username">Name : <field name="name"/></div>
+                                <div class="card-content__username">ID : <field name="employee_uid"/></div>
+                                <div class="card-content__bio">Designation : <field name="designation_id"/></div>
+                                <div class="card-content__bio">Mobile : <field name="mobile"/></div>
+                                <div class="card-content__bio">Phone : <field name="phone"/></div>
+                                <div class="card-content__bio">Email : <field name="email"/></div>
+                            </div>
+
+                            <!-- Footer-->
+                            <div class="card-footer">
+                                <div class="card-footer__pens">
+                                    <span><field name="doj"/></span> <div class="label">DOJ</div>
+                                </div>
+                                <div class="card-footer__followers">
+                                    <span><field name="department_id"/></span> <div class="label">DOJ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </t>
+              </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!-- Action -->
+    <record id="action_hr_employee_card" model="ir.actions.act_window">
+        <field name="name">Employee ID Card</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="view_hr_employee_card_kanban"/>
+    </record>
+
+</odoo>

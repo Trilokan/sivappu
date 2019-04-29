@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_patient_operation_tree" model="ir.ui.view">
+        <field name="name">patient.operation.tree</field>
+        <field name="model">patient.operation</field>
+        <field name="arch" type="xml">
+            <tree string="Operation">
+                <field name="name"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_patient_operation_form" model="ir.ui.view">
+        <field name="name">patient.operation.form</field>
+        <field name="model">patient.operation</field>
+        <field name="arch" type="xml">
+            <form string="Operation">
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                        <field name="name"/>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="staff_ids"/>
+                        <field name="progress"/>
+                        <field name="operation_date"/>
+                        <field name="operation_id"/>
+                        <field name="procedure_ids"/>
+                        <field name="payment"/>
+                        <field name="ot_id"/>
+                        <field name="comment"/>
+                        <field name="attachment_ids" widget="many2many_binary"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_patient_operation" model="ir.actions.act_window">
+        <field name="name">Operation</field>
+        <field name="res_model">patient.operation</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

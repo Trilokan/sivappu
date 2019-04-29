@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_store_accept_tree" model="ir.ui.view">
+        <field name="name">store.accept.tree</field>
+        <field name="model">store.accept</field>
+        <field name="arch" type="xml">
+            <tree string="Store Accept" create="false" edit="false" delete="false">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="department_id"/>
+                <field name="progress"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_store_accept_form" model="ir.ui.view">
+        <field name="name">store.accept.form</field>
+        <field name="model">store.accept</field>
+        <field name="arch" type="xml">
+            <form string="Store Accept" create="false" edit="true" delete="false">
+                <sheet>
+                    <div id="s_header">
+                        <h1>Store Accept</h1>
+                    </div>
+                    <div id="p_header">
+                        <field name="progress" widget="statusbar" style="float: right;padding: 20px;"/>
+                    </div>
+                    <h2><field name="name"/></h2>
+                    <group col="4">
+                        <field name="date" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="department_id" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="accept_by"/>
+                    </group>
+                    <field name="accept_detail" attrs="{'readonly': [('progress', '!=', 'draft')]}">
+                        <tree editable="bottom">
+                            <field name="name" invisible="1"/>
+                            <field name="id" invisible="1"/>
+                            <field name="product_id" readonly="1"/>
+                            <field name="description" readonly="1"/>
+                            <field name="uom_id" readonly="1"/>
+                            <field name="returned_quantity" readonly="1"/>
+                            <field name="accept_quantity" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                            <field name="accept_id" invisible="1"/>
+                            <field name="progress" invisible="1"/>
+                        </tree>
+                    </field>
+                    <footer>
+                        <button name="trigger_accept" string="Accept" type="object"
+                                attrs="{'invisible': [('progress', '!=', 'draft')]}"/>
+                        <button name="trigger_cancel" string="Cancel" type="object"
+                                attrs="{'invisible': [('progress', '!=', 'draft')]}"/>
+                    </footer>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_store_accept" model="ir.actions.act_window">
+        <field name="name">Store Accept</field>
+        <field name="res_model">store.accept</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

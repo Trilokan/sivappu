@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_arc_journal_tree" model="ir.ui.view">
+        <field name="name">arc.journal.tree</field>
+        <field name="model">arc.journal</field>
+        <field name="arch" type="xml">
+            <tree string="Journal">
+                <field name="name"/>
+                <field name="journal_uid"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_arc_journal_form" model="ir.ui.view">
+        <field name="name">arc.journal.form</field>
+        <field name="model">arc.journal</field>
+        <field name="arch" type="xml">
+            <form string="Journal">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="journal_uid"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_arc_journal" model="ir.actions.act_window">
+        <field name="name">Journal</field>
+        <field name="res_model">arc.journal</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

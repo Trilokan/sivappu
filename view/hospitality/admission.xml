@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_admission_discharge_admission_tree" model="ir.ui.view">
+        <field name="name">admission.discharge.admission.tree</field>
+        <field name="model">admission.discharge</field>
+        <field name="arch" type="xml">
+            <tree string="Admission">
+                <field name="name"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_admission_discharge_admission_form" model="ir.ui.view">
+        <field name="name">admission.discharge.admission.form</field>
+        <field name="model">admission.discharge</field>
+        <field name="arch" type="xml">
+            <form string="Admission">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="patient_id"/>
+                        <field name="progress"/>
+                        <field name="admission_date"/>
+                        <field name="admission_reason"/>
+                        <field name="admission_reason_detail"/>
+                        <field name="admission_contact_person"/>
+                        <field name="admission_contact"/>
+                        <field name="admission_by"/>
+                        <field name="admission_attachment"/>
+                        <field name="admission_comment"/>
+                        <field name="admission_patient_status"/>
+                        <field name="bed_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_admission_discharge_admission" model="ir.actions.act_window">
+        <field name="name">Admission</field>
+        <field name="res_model">admission.discharge</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

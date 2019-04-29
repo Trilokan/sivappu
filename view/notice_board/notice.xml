@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_arc_notice_tree" model="ir.ui.view">
+        <field name="name">arc.notice.tree</field>
+        <field name="model">arc.notice</field>
+        <field name="arch" type="xml">
+            <tree string="Notice">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="notice"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_arc_notice_form" model="ir.ui.view">
+        <field name="name">arc.notice.form</field>
+        <field name="model">arc.notice</field>
+        <field name="arch" type="xml">
+            <form string="Notice">
+                <sheet>
+                    <field name="progress" widget="statusbar" style="float: right" attrs="{'invisible': [('progress', '=', 'cancel')]}"/>
+                    <field name="is_cancel" widget="statusbar" style="float: right" attrs="{'invisible': [('progress', '!=', 'cancel')]}"/>
+                    <h2><field name="name"/></h2>
+                    <group col="4">
+                        <field name="date" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="notice" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="attachment_ids" attrs="{'readonly': [('progress', '!=', 'draft')]}" widget="many2many_binary"/>
+                    </group>
+                    <field name="notice_detail" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                    <footer>
+                        <button name="trigger_confirm" string="Confirm" type="object"
+                                attrs="{'invisible': [('progress', '!=', 'draft')]}"/>
+                        <button name="trigger_cancel" string="Cancel" type="object"
+                                attrs="{'invisible': [('progress', '!=', 'draft')]}"/>
+                    </footer>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Kanban -->
+    <record id="view_arc_notice_kanban" model="ir.ui.view">
+        <field name="name">arc.notice.kanban</field>
+        <field name="model">arc.notice</field>
+        <field name="arch" type="xml">
+            <kanban string="Notice">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="notice"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click card">
+                            <div class="card-content-small">
+
+                                <!-- Content-->
+                                <div class="card-content">
+                                    <div class="card-content__username"><field name="name"/></div>
+                                    <div class="card-content_username">Date : <field name="date"/></div>
+                                    <div class="card-content_username">Notice : <field name="notice"/></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </t>
+              </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_arc_notice" model="ir.actions.act_window">
+        <field name="name">Notice</field>
+        <field name="res_model">arc.notice</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_purchase_indent_tree" model="ir.ui.view">
+        <field name="name">purchase.indent.tree</field>
+        <field name="model">purchase.indent</field>
+        <field name="arch" type="xml">
+            <tree string="Purchase Indent">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="department_id"/>
+                <field name="request_by"/>
+                <field name="request_on"/>
+                <field name="progress"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_purchase_indent_form" model="ir.ui.view">
+        <field name="name">purchase.indent.form</field>
+        <field name="model">purchase.indent</field>
+        <field name="arch" type="xml">
+            <form string="Purchase Indent">
+                <sheet>
+                    <div id="s_header">
+                        <h1>Purchase Indent</h1>
+                    </div>
+                    <field name="progress" widget="statusbar" style="float: right;padding: 20px;"/>
+                    <h2><field name="name"/></h2>
+                    <group col="4">
+                        <field name="date" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="department_id" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="request_by" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="request_on" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                    </group>
+                    <field name="indent_detail" attrs="{'readonly': [('progress', '!=', 'draft')]}">
+                        <tree editable="bottom">
+                            <field name="product_id"/>
+                            <field name="description"/>
+                            <field name="uom_id" readonly="1"/>
+                            <field name="request_quantity"/>
+                            <field name="indent_id" invisible="1"/>
+                            <field name="indent_progress" invisible="1"/>
+                            <field name="approval_progress" invisible="1"/>
+                        </tree>
+                        <form>
+                            <div id="s_header">
+                                <h1>Purchase Indent</h1>
+                            </div>
+                            <field name="approval_progress" widget="statusbar" style="float: right;padding: 20px;"/>
+                            <group col="4">
+                                <field name="product_id"/>
+                                <field name="description"/>
+                                <field name="uom_id"/>
+                                <field name="request_quantity"/>
+                                <field name="approved_quantity"/>
+                                <field name="approved_by"/>
+                                <field name="approved_on"/>
+                                <field name="attachment_ids" widget="many2many_tags"/>
+                                <field name="indent_id" invisible="1"/>
+                            </group>
+                            <field name="comment" placeholder="Comment.."/>
+                        </form>
+                    </field>
+
+                    <footer>
+                        <button name="trigger_confirm" string="Confirm" type="object" attrs="{'invisible': [('progress', '!=', 'draft')]}"/>
+                    </footer>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_purchase_indent" model="ir.actions.act_window">
+        <field name="name">Purchase Indent</field>
+        <field name="res_model">purchase.indent</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

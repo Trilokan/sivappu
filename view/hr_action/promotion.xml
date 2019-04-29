@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_hr_promotion_tree" model="ir.ui.view">
+        <field name="name">hr.promotion.tree</field>
+        <field name="model">hr.promotion</field>
+        <field name="arch" type="xml">
+            <tree string="Employee Promotion">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_hr_promotion_form" model="ir.ui.view">
+        <field name="name">hr.promotion.form</field>
+        <field name="model">hr.promotion</field>
+        <field name="arch" type="xml">
+            <form string="Employee Promotion">
+                <sheet>
+                    <div id="s_header">
+                        <h1>Employee Promotion</h1>
+                    </div>
+                    <div id="p_header">
+                        <field name="progress" widget="statusbar" style="float: right;padding: 20px;"/>
+                    </div>
+                    <h2><field name="name"/></h2>
+                    <group col="4">
+                        <field name="date" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="person_id" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="department_id" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="designation_id" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="attachment_ids" widget="many2many_binary" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                        <field name="promoted_by" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                    </group>
+                    <separator string="Promotion Details"/>
+                    <field name="promotion_detail" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                    <footer>
+                        <button name="trigger_promote" string="Promote" type="object"
+                                attrs="{'invisible': [('progress', '!=', 'draft')]}"/>
+                    </footer>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_hr_promotion" model="ir.actions.act_window">
+        <field name="name">Employee Promotion</field>
+        <field name="res_model">hr.promotion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

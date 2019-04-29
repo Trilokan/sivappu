@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Menu : Hospital-->
+    <!--Menu : Hospital / Hospitality-->
+    <menuitem id="hospital_hospital_hospitality" name="Hospitality" parent="hospital_hospital" sequence="10"/>
+    <menuitem id="hospital_hospital_hospitality_admission" name="Admission" action="action_admission_discharge_admission" parent="hospital_hospital_hospitality" sequence="10"/>
+    <menuitem id="hospital_hospital_hospitality_discharge" name="Discharge" action="action_admission_discharge_discharge" parent="hospital_hospital_hospitality" sequence="20"/>
+    <menuitem id="hospital_hospital_hospitality_appointment" name="Appointment" action="action_arc_appointment" parent="hospital_hospital_hospitality" sequence="30"/>
+    <!--<menuitem id="hospital_hospital_hospitality_bed_status" name="Bed Status" action="action_bed_status" parent="hospital_hospital_hospitality" sequence="40"/>-->
+    <menuitem id="hospital_hospital_hospitality_ambulance" name="Ambulance" action="action_arc_ambulance" parent="hospital_hospital_hospitality" sequence="50"/>
+
+    <!--Menu : Hospital / Contact-->
+    <menuitem id="hospital_hospital_contact" name="Contacts" parent="hospital_hospital" sequence="20"/>
+    <menuitem id="hospital_hospital_contact_patient" name="Patient" action="action_arc_person_patient" parent="hospital_hospital_contact" sequence="10"/>
+    <menuitem id="hospital_hospital_contact_doctor" name="Doctor" action="action_arc_person_doctor" parent="hospital_hospital_contact" sequence="20"/>
+    <menuitem id="hospital_hospital_contact_nurse" name="Nurse" action="action_arc_person_nurse" parent="hospital_hospital_contact" sequence="30"/>
+    <menuitem id="hospital_hospital_contact_staff" name="Staffs" action="action_arc_person_staff" parent="hospital_hospital_contact" sequence="40"/>
+    <menuitem id="hospital_hospital_contact_driver" name="Drivers" action="action_arc_person_driver" parent="hospital_hospital_contact" sequence="50"/>
+    <menuitem id="hospital_hospital_contact_supplier" name="Suppliers" action="action_arc_person_supplier" parent="hospital_hospital_contact" sequence="60"/>
+    <menuitem id="hospital_hospital_contact_service" name="Services" action="action_arc_person_service" parent="hospital_hospital_contact" sequence="70"/>
+
+    <!--Menu : Hospital / Register-->
+    <menuitem id="hospital_hospital_register" name="Register" parent="hospital_hospital" sequence="30"/>
+    <menuitem id="hospital_hospital_register_patient" name="Patients" action="action_arc_patient" parent="hospital_hospital_register" sequence="10"/>
+    <menuitem id="hospital_hospital_register_employee" name="Employee" action="action_hr_employee" parent="hospital_hospital_register" sequence="20"/>
+    <menuitem id="hospital_hospital_register_supplier" name="Suppliers" action="action_arc_person" parent="hospital_hospital_register" sequence="30"/>
+
+    <!--Menu : Hospital / Notice Board-->
+    <menuitem id="hospital_hospital_notice" name="Notice Board" parent="hospital_hospital" sequence="50"/>
+    <menuitem id="hospital_hospital_notice_notice" name="Notice" action="action_arc_notice" parent="hospital_hospital_notice" sequence="10"/>
+    <menuitem id="hospital_hospital_notice_event" name="Events" action="action_arc_event" parent="hospital_hospital_notice" sequence="20"/>
+    <menuitem id="hospital_hospital_notice_vacancy" name="Vacancy Position" action="action_vacancy_position" parent="hospital_hospital_notice" sequence="30"/>
+
+    <!--Menu : Patient-->
+    <!--Menu : Patient / Register-->
+    <menuitem id="hospital_patient_register" name="Register" parent="hospital_patient" sequence="10"/>
+    <menuitem id="hospital_patient_register_patient" name="Patient" parent="hospital_patient_register" action="action_arc_patient" sequence="10"/>
+
+    <!--Menu : Patient / In-Patient-->
+    <menuitem id="hospital_patient_in" name="In-Patient" parent="hospital_patient" sequence="20"/>
+    <!--<menuitem id="hospital_patient_in_admission" name="Admission" parent="hospital_patient_in" action="" sequence="10"/>-->
+    <!--<menuitem id="hospital_patient_in_discharge" name="Discharge" parent="hospital_patient_in" action="" sequence="20"/>-->
+    <!--<menuitem id="hospital_patient_in_treatment" name="Treatment" parent="hospital_patient_in" action="" sequence="30"/>-->
+    <!--<menuitem id="hospital_patient_in_prescription" name="Prescription" parent="hospital_patient_in" action="" sequence="40"/>-->
+    <!--<menuitem id="hospital_patient_in_reminder" name="Reminder" parent="hospital_patient_in" action="" sequence="50"/>-->
+    <!--<menuitem id="hospital_patient_in_visitor" name="Visitors" parent="hospital_patient_in" action="" sequence="60"/>-->
+
+    <!--Menu : Patient / Out-Patient-->
+    <menuitem id="hospital_patient_out" name="Out-Patient" parent="hospital_patient" sequence="30"/>
+    <menuitem id="hospital_patient_out_appointment" name="Appointment" action="" parent="hospital_patient_out" sequence="20"/>
+    <menuitem id="hospital_patient_out_treatment" name="Treatment" action="" parent="hospital_patient_out" sequence="20"/>
+    <menuitem id="hospital_patient_out_prescription" name="Prescription" action="" parent="hospital_patient_out" sequence="30"/>
+
+    <!--Menu : Patient / Wards-->
+    <menuitem id="hospital_patient_ward" name="Wards" parent="hospital_patient" sequence="40"/>
+    <!--<menuitem id="hospital_patient_ward_ward" name="Wards" action="action_arc_ward" parent="hospital_patient_ward" sequence="10"/>-->
+    <!--<menuitem id="hospital_patient_ward_bed" name="Beds" action="action_arc_bed" parent="hospital_patient_ward" sequence="20"/>-->
+    <!--<menuitem id="hospital_patient_ward_patient_shifting" name="Patient Shifting" action="action_patient_shifting" parent="hospital_patient_ward" sequence="30"/>-->
+    <!--<menuitem id="hospital_patient_ward_bed_status" name="Bed Status" action="action_bed_status" parent="hospital_patient_ward" sequence="30"/>-->
+
+    <!--Menu : Patient / Bills-->
+    <menuitem id="hospital_patient_bill" name="Bills" parent="hospital_patient" sequence="50"/>
+    <!--<menuitem id="hospital_patient_bill_treatment" name="Treatment Bill" parent="hospital_patient_bill" action="" sequence="10"/>-->
+    <!--<menuitem id="hospital_patient_bill_pharmacy" name="Pharmacy Bill" parent="hospital_patient_bill" action="" sequence="20"/>-->
+    <!--<menuitem id="hospital_patient_bill_laboratory" name="Laboratory Bill" parent="hospital_patient_bill" action="" sequence="30"/>-->
+    <!--<menuitem id="hospital_patient_bill_other" name="Other Bill" parent="hospital_patient_bill" action="" sequence="40"/>-->
+
+    <!--Menu : Patient / Report-->
+    <menuitem id="hospital_patient_report" name="Report" parent="hospital_patient" sequence="60"/>
+    <!--<menuitem id="hospital_patient_report_treatment" name="Treatment Report" parent="hospital_patient_report" action="" sequence="10"/>-->
+    <!--<menuitem id="hospital_patient_report_lab" name="LAB Report" parent="hospital_patient_report" action="" sequence="20"/>-->
+    <!--<menuitem id="hospital_patient_report_payment" name="Payment Report" parent="hospital_patient_report" action="" sequence="30"/>-->
+
+
+    <!--Menu : Employee-->
+    <!--Menu : Employee / Doctor-->
+    <menuitem id="hospital_employee_doctor" name="Doctor" parent="hospital_employee" sequence="10"/>
+    <menuitem id="hospital_employee_doctor_availability" name="Doctor Availability" action="action_doctor_availability" parent="hospital_employee_doctor" sequence="10"/>
+    <menuitem id="hospital_employee_doctor_timing" name="Doctor Timing" action="action_doctor_timing" parent="hospital_employee_doctor" sequence="20"/>
+
+    <!--Menu : Employee / Appointments-->
+    <menuitem id="hospital_employee_appointment" name="Appointments" parent="hospital_employee" sequence="20"/>
+    <menuitem id="hospital_employee_appointment_appointment" name="My Appointments" action="action_arc_appointment_my" parent="hospital_employee_appointment" sequence="10"/>
+    <menuitem id="hospital_employee_appointment_opt" name="OPT" action="action_arc_appointment_opt" parent="hospital_employee_appointment" sequence="20"/>
+    <menuitem id="hospital_employee_appointment_ot" name="OT" action="action_arc_appointment_ot" parent="hospital_employee_appointment" sequence="30"/>
+    <menuitem id="hospital_employee_appointment_meeting" name="Meetings" action="action_arc_appointment_meeting" parent="hospital_employee_appointment" sequence="40"/>
+
+    <!--Menu : Employee / Employees-->
+    <menuitem id="hospital_employee_employee" name="Employees" parent="hospital_employee" sequence="30"/>
+    <menuitem id="hospital_employee_employee_time_application" name="Shift" action="action_time_sheet_application" parent="hospital_employee_employee" sequence="10"/>
+    <menuitem id="hospital_employee_employee_shift_schedule" name="Shift Schedule" action="action_week_schedule" parent="hospital_employee_employee" sequence="20"/>
+    <menuitem id="hospital_employee_employee_attendance" name="Attendance" action="action_daily_attendance" parent="hospital_employee_employee" sequence="30"/>
+    <menuitem id="hospital_employee_employee_work_detail" name="Work Sheet" action="action_work_sheet" parent="hospital_employee_employee" sequence="40"/>
+    <menuitem id="hospital_employee_employee_time_application" name="Time Sheet" action="action_time_sheet_application" parent="hospital_employee_employee" sequence="50"/>
+    <menuitem id="hospital_employee_employee_time_application" name="Time Application" action="action_time_sheet_application" parent="hospital_employee_employee" sequence="60"/>
+    <menuitem id="hospital_employee_employee_leave_application" name="Leave Application" action="action_leave_application" parent="hospital_employee_employee" sequence="70"/>
+    <menuitem id="hospital_employee_employee_permission" name="Permission" action="action_permission_application" parent="hospital_employee_employee" sequence="80"/>
+    <menuitem id="hospital_employee_employee_on_duty" name="On-Duty" action="action_on_duty_application" parent="hospital_employee_employee" sequence="90"/>
+    <menuitem id="hospital_employee_employee_comp_off" name="Comp-Off" action="action_comp_off_application" parent="hospital_employee_employee" sequence="100"/>
+    <menuitem id="hospital_employee_employee_leave_availability" name="Leave Availability" action="action_leave_availability" parent="hospital_employee_employee" sequence="110"/>
+
+    <!--Menu : Employee / Notes-->
+    <menuitem id="hospital_employee_note" name="Notes" parent="hospital_employee" sequence="40"/>
+    <menuitem id="hospital_employee_note_note" name="Notes" action="action_arc_note" parent="hospital_employee_note" sequence="10"/>
+    <menuitem id="hospital_employee_note_reminder" name="Reminder" action="action_arc_reminder" parent="hospital_employee_note" sequence="20"/>
+
+    <!--Menu : Employee / Notice Board-->
+    <menuitem id="hospital_employee_notice_board" name="Notice Board" parent="hospital_employee" sequence="50"/>
+    <menuitem id="hospital_employee_notice_board_notice" name="Notice" action="action_arc_notice" parent="hospital_employee_notice_board" sequence="10"/>
+    <menuitem id="hospital_employee_notice_board_event" name="Events" action="action_arc_event" parent="hospital_employee_notice_board" sequence="20"/>
+    <menuitem id="hospital_employee_notice_board_vacancy_position" name="Vacancy Position" action="action_vacancy_position" parent="hospital_employee_notice_board" sequence="30"/>
+
+
+    <!--Menu : Human Resources-->
+    <!--Menu : Human Resources / Employee-->
+    <menuitem id="hospital_hr_employee" name="Employees" parent="hospital_hr" sequence="10"/>
+    <menuitem id="hospital_hr_employee_employee" name="Employee Register" action="action_hr_employee" parent="hospital_hr_employee" sequence="10"/>
+    <menuitem id="hospital_hr_employee_id_card" name="ID Card" action="action_hr_employee_card" parent="hospital_hr_employee" sequence="20"/>
+    <menuitem id="hospital_hr_employee_department" name="Department" action="action_hr_department" parent="hospital_hr_employee" sequence="30"/>
+    <menuitem id="hospital_hr_employee_designation" name="Designation" action="action_hr_designation" parent="hospital_hr_employee" sequence="40"/>
+    <menuitem id="hospital_hr_employee_employee_category" name="Employee Category" action="action_hr_category" parent="hospital_hr_employee" sequence="60"/>
+    <menuitem id="hospital_hr_employee_experience" name="Experience" action="action_hr_experience" parent="hospital_hr_employee" sequence="70"/>
+    <menuitem id="hospital_hr_employee_qualification" name="Qualification" action="action_arc_qualification_employee" parent="hospital_hr_employee" sequence="80"/>
+    <menuitem id="hospital_hr_employee_identity" name="Identities" action="action_arc_identity_employee" parent="hospital_hr_employee" sequence="90"/>
+
+    <!--Menu : Human Resources / Recruitment-->
+    <menuitem id="hospital_hr_recruitment" name="Recruitment" parent="hospital_hr" sequence="20"/>
+    <menuitem id="hospital_hr_recruitment_resume" name="Resume Bank" action="action_resume_bank" parent="hospital_hr_recruitment" sequence="10"/>
+    <menuitem id="hospital_hr_recruitment_vacancy_position" name="vacancy Position" action="action_vacancy_position" parent="hospital_hr_recruitment" sequence="20"/>
+    <menuitem id="hospital_hr_recruitment_appointment_order" name="Appointment Order" action="action_appointment_order" parent="hospital_hr_recruitment" sequence="30"/>
+
+    <!--Menu : Human Resources / Time Management-->
+    <menuitem id="hospital_hr_time" name="Time Management" parent="hospital_hr" sequence="40"/>
+    <menuitem id="hospital_hr_time_shift" name="Shift" action="action_time_shift" parent="hospital_hr_time" sequence="10"/>
+    <menuitem id="hospital_hr_time_month_attendance" name="Monthly Attendance" action="action_month_attendance" parent="hospital_hr_time" sequence="20"/>
+    <menuitem id="hospital_hr_time_week_schedule" name="Week Schedule" action="action_week_schedule" parent="hospital_hr_time" sequence="30"/>
+    <menuitem id="hospital_hr_time_daily_attendance" name="Daily Attendance" action="action_daily_attendance" parent="hospital_hr_time" sequence="40"/>
+    <menuitem id="hospital_hr_time_work_sheet" name="Work Sheet" action="action_work_sheet" parent="hospital_hr_time" sequence="50"/>
+    <menuitem id="hospital_hr_time_time_sheet" name="Time Sheet" action="action_time_sheet" parent="hospital_hr_time" sequence="60"/>
+    <menuitem id="hospital_hr_time_time_sheet_application" name="Time Sheet Application" action="action_time_sheet_application" parent="hospital_hr_time" sequence="70"/>
+    <menuitem id="hospital_hr_time_add_employee" name="Add Employee To Shift" action="action_attendance_change_add_employee_to_shift" parent="hospital_hr_time" sequence="80"/>
+    <menuitem id="hospital_hr_time_holiday_change" name="Holiday Change" action="action_attendance_change_holiday_change" parent="hospital_hr_time" sequence="90"/>
+    <menuitem id="hospital_hr_time_shift_change" name="Shift Change" action="action_attendance_change_shift_change" parent="hospital_hr_time" sequence="100"/>
+    <menuitem id="hospital_hr_time_config" name="Configuration" action="action_time_config" parent="hospital_hr_time" sequence="110"/>
+
+    <!--Menu : Human Resources / Leave Management-->
+    <menuitem id="hospital_hr_leave" name="Leave Management" parent="hospital_hr" sequence="50"/>
+    <menuitem id="hospital_hr_leave_leave" name="Leave Application" action="action_leave_application" parent="hospital_hr_leave" sequence="10"/>
+    <menuitem id="hospital_hr_leave_permission" name="Permission" action="action_permission_application" parent="hospital_hr_leave" sequence="20"/>
+    <menuitem id="hospital_hr_leave_on_duty" name="On-Duty" action="action_on_duty_application" parent="hospital_hr_leave" sequence="30"/>
+    <menuitem id="hospital_hr_leave_comp_off" name="Comp-Off" action="action_comp_off_application" parent="hospital_hr_leave" sequence="40"/>
+    <menuitem id="hospital_hr_leave_level" name="Leave Level" action="action_leave_level" parent="hospital_hr_leave" sequence="50"/>
+    <menuitem id="hospital_hr_leave_type" name="Leave Type" action="action_leave_type" parent="hospital_hr_leave" sequence="60"/>
+    <menuitem id="hospital_hr_leave_availability" name="Leave Availability" action="action_leave_availability" parent="hospital_hr_leave" sequence="70"/>
+    <menuitem id="hospital_hr_leave_config" name="Configuration" action="action_leave_config" parent="hospital_hr_leave" sequence="80"/>
+
+    <!--Menu : Human Resources / Payroll-->
+    <menuitem id="hospital_hr_payroll" name="Payroll Management" parent="hospital_hr" sequence="60"/>
+    <menuitem id="hospital_hr_payroll_employee_pay" name="Employee Pay" action="action_hr_pay" parent="hospital_hr_payroll" sequence="10"/>
+    <menuitem id="hospital_hr_payroll_pay_update" name="Employee Pay Update" action="action_hr_pay_wizard" parent="hospital_hr_payroll" sequence="20"/>
+    <menuitem id="hospital_hr_payroll_payslip" name="Payslip" action="action_pay_slip" parent="hospital_hr_payroll" sequence="30"/>
+    <menuitem id="hospital_hr_payroll_generation" name="Payroll Generation" action="action_payroll_generation" parent="hospital_hr_payroll" sequence="40"/>
+    <menuitem id="hospital_hr_payroll_salary_structure" name="Salary Structure" action="action_salary_structure" parent="hospital_hr_payroll" sequence="50"/>
+    <menuitem id="hospital_hr_payroll_salary_rule" name="Salary Rule" action="action_salary_rule" parent="hospital_hr_payroll" sequence="60"/>
+    <menuitem id="hospital_hr_payroll_salary_rule_slab" name="Salary Rule Slab" action="action_salary_rule_slab" parent="hospital_hr_payroll" sequence="70"/>
+    <menuitem id="hospital_hr_payroll_salary_rule_code" name="Salary Code" action="action_salary_rule_code" parent="hospital_hr_payroll" sequence="80"/>
+
+    <!--Menu : Human Resources / Employee Actions-->
+    <menuitem id="hospital_hr_employee_action" name="Employee Actions" parent="hospital_hr" sequence="60"/>
+    <menuitem id="hospital_hr_employee_action_hiring" name="Hiring" parent="hospital_hr_employee_action" sequence="10"/>
+    <menuitem id="hospital_hr_employee_action_promotion" name="Promotion" parent="hospital_hr_employee_action" sequence="20"/>
+    <menuitem id="hospital_hr_employee_action_complaint" name="Complaints" parent="hospital_hr_employee_action" sequence="30"/>
+    <menuitem id="hospital_hr_employee_action_taken" name="Action Taken" parent="hospital_hr_employee_action" sequence="40"/>
+    <menuitem id="hospital_hr_employee_action_resignation" name="Resignation" parent="hospital_hr_employee_action" sequence="50"/>
+
+
+    <!--Menu : Inventory-->
+    <!--Menu : Inventory / Product-->
+    <menuitem id="hospital_inventory_product" name="Product" parent="hospital_inventory" sequence="10"/>
+    <menuitem id="hospital_inventory_product_product" name="Product" action="action_arc_product" parent="hospital_inventory_product" sequence="10"/>
+    <menuitem id="hospital_inventory_product_group" name="Product Group" action="action_product_group" parent="hospital_inventory_product" sequence="20"/>
+    <menuitem id="hospital_inventory_product_sub_group" name="Product Sub-Group" action="action_product_sub_group" parent="hospital_inventory_product" sequence="30"/>
+    <menuitem id="hospital_inventory_product_uom" name="UOM" action="action_product_uom" parent="hospital_inventory_product" sequence="40"/>
+    <menuitem id="hospital_inventory_product_tax" name="Tax" action="action_product_tax" parent="hospital_inventory_product" sequence="50"/>
+    <menuitem id="hospital_inventory_product_category" name="Category" action="action_product_category" parent="hospital_inventory_product" sequence="60"/>
+    <menuitem id="hospital_inventory_product_location" name="Location" action="action_store_location" parent="hospital_inventory_product" sequence="70"/>
+    <menuitem id="hospital_inventory_product_warehouse" name="Warehouse" action="action_store_warehouse" parent="hospital_inventory_product" sequence="80"/>
+
+    <!--Menu : Inventory / Stores-->
+    <menuitem id="hospital_inventory_store" name="Stores" parent="hospital_inventory" sequence="20"/>
+    <menuitem id="hospital_inventory_store_adjustment" name="Stock Adjustment" action="action_stock_adjustment" parent="hospital_inventory_store" sequence="10"/>
+    <menuitem id="hospital_inventory_store_request" name="Store Request" action="action_store_request" parent="hospital_inventory_store" sequence="20"/>
+    <menuitem id="hospital_inventory_store_issue" name="Store Issue" action="action_store_issue" parent="hospital_inventory_store" sequence="30"/>
+    <menuitem id="hospital_inventory_store_return" name="Store Return" action="action_store_return" parent="hospital_inventory_store" sequence="40"/>
+    <menuitem id="hospital_inventory_store_accept" name="Store Accept" action="action_store_accept" parent="hospital_inventory_store" sequence="50"/>
+    <menuitem id="hospital_inventory_store_move" name="Stock Move" action="action_arc_move" parent="hospital_inventory_store" sequence="50"/>
+    <menuitem id="hospital_inventory_store_config" name="Configuration" action="action_store_config" parent="hospital_inventory_store" sequence="80"/>
+
+    <!--Menu : Inventory / Asserts-->
+    <menuitem id="hospital_inventory_assert" name="Asserts" parent="hospital_inventory" sequence="30"/>
+    <menuitem id="hospital_inventory_assert_capitalisation" name="Asserts Capitalisation" action="action_asserts_capitalisation" parent="hospital_inventory_assert" sequence="10"/>
+    <menuitem id="hospital_inventory_assert_assert" name="Asserts" action="action_arc_asserts" parent="hospital_inventory_assert" sequence="20"/>
+    <menuitem id="hospital_inventory_assert_maintenance" name="Asserts Maintenance" action="action_asserts_maintenance" parent="hospital_inventory_assert" sequence="30"/>
+    <menuitem id="hospital_inventory_assert_reminder" name="Asserts Reminder" action="action_asserts_reminder" parent="hospital_inventory_assert" sequence="40"/>
+
+    <!--Menu : Inventory / Report-->
+    <menuitem id="hospital_inventory_report" name="Report" parent="hospital_inventory" sequence="40"/>
+
+
+    <!--Menu : Procurement-->
+    <!--Menu : Procurement / Purchase-->
+    <menuitem id="hospital_procurement_purchase" name="Purchase" parent="hospital_procurement" sequence="10"/>
+    <menuitem id="hospital_procurement_purchase_indent" name="Purchase Indent" action="action_purchase_indent" parent="hospital_procurement_purchase" sequence="10"/>
+    <menuitem id="hospital_procurement_purchase_indent_approval" name="Indent Approval" action="action_indent_detail" parent="hospital_procurement_purchase" sequence="20"/>
+    <menuitem id="hospital_procurement_purchase_vendor_selection" name="Vendor Selection" action="action_vendor_selection" parent="hospital_procurement_purchase" sequence="30"/>
+    <menuitem id="hospital_procurement_purchase_quotation" name="Quotation" action="action_purchase_quotation" parent="hospital_procurement_purchase" sequence="40"/>
+    <menuitem id="hospital_procurement_purchase_order" name="Purchase Order" action="action_arc_order_purchase" parent="hospital_procurement_purchase" sequence="50"/>
+    <menuitem id="hospital_procurement_purchase_invoice" name="Invoice" action="action_arc_invoice_purchase" parent="hospital_procurement_purchase" sequence="70"/>
+
+    <!--Menu : Procurement / Purchase Return-->
+    <menuitem id="hospital_procurement_purchase_return" name="Purchase Return" parent="hospital_procurement" sequence="20"/>
+    <menuitem id="hospital_procurement_purchase_return_order" name="PO Return" action="action_arc_order_purchase_return" parent="hospital_procurement_purchase_return" sequence="10"/>
+    <menuitem id="hospital_procurement_purchase_return_invoice" name="Invoice" action="action_arc_invoice_purchase_return" parent="hospital_procurement_purchase_return" sequence="30"/>
+
+    <!--Menu : Procurement / Sale-->
+    <menuitem id="hospital_procurement_sale" name="Sales" parent="hospital_procurement" sequence="30"/>
+    <menuitem id="hospital_procurement_sale_order" name="Sale Order" action="action_arc_order_sale" parent="hospital_procurement_sale" sequence="10"/>
+    <menuitem id="hospital_procurement_sale_invoice" name="Invoice" action="action_arc_invoice_sale" parent="hospital_procurement_sale" sequence="30"/>
+
+    <!--Menu : Procurement / Sale Return-->
+    <menuitem id="hospital_procurement_sale_return" name="Sales Return" parent="hospital_procurement" sequence="40"/>
+    <menuitem id="hospital_procurement_sale_return_order" name="SO Return" action="action_arc_order_sale_return" parent="hospital_procurement_sale_return" sequence="10"/>
+    <menuitem id="hospital_procurement_sale_return_invoice" name="Invoice" action="action_arc_invoice_sale_return" parent="hospital_procurement_sale_return" sequence="30"/>
+
+    <!--Menu : Procurement / Store-->
+    <menuitem id="hospital_procurement_store" name="Stores" parent="hospital_procurement" sequence="50"/>
+    <menuitem id="hospital_procurement_store_product" name="Product" action="action_arc_product" parent="hospital_procurement_store" sequence="60"/>
+    <menuitem id="hospital_procurement_store_receipt" name="Material Receipt" action="action_material_transact" parent="hospital_procurement_store" sequence="60"/>
+    <!--<menuitem id="hospital_procurement_store_inspect" name="Material Inspect" action="action_material_inspect" parent="hospital_procurement_store" sequence="60"/>-->
+
+    <!--Menu : Accounts / Accounts-->
+    <menuitem id="hospital_account_account" name="Stores" parent="hospital_account" sequence="10"/>
+    <menuitem id="hospital_account_account_account" name="Accounts" action="action_arc_account" parent="hospital_account_account" sequence="10"/>
+    <menuitem id="hospital_account_account_journal" name="Journals" action="action_arc_journal" parent="hospital_account_account" sequence="20"/>
+    <!--<menuitem id="hospital_account_account_year" name="Financial Year" action="" parent="hospital_account_account" sequence="30"/>-->
+    <!--<menuitem id="hospital_account_account_period" name="Period" action="" parent="hospital_account_account" sequence="40"/>-->
+
+    <!--Menu : Accounts / Journals-->
+    <menuitem id="hospital_account_journal" name="Journals" parent="hospital_account" sequence="10"/>
+    <menuitem id="hospital_account_journal_entry" name="Journal Entry" action="action_journal_entry" parent="hospital_account_journal" sequence="10"/>
+    <menuitem id="hospital_account_journal_item" name="Journal Item" action="action_journal_detail" parent="hospital_account_journal" sequence="10"/>
+
+    <!--Menu : Accounts / Payments-->
+    <!--Menu : Accounts / Reports-->
+
+</odoo>

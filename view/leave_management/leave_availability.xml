@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Form -->
+    <record id="view_leave_availability_form" model="ir.ui.view">
+        <field name="name">leave.availability.form</field>
+        <field name="model">leave.availability</field>
+        <field name="arch" type="xml">
+            <form string="Leave Availability">
+                <sheet>
+                    <div id="s_header">
+                        <h1>Leave Availability</h1>
+                    </div>
+                    <group>
+                        <field name="person_id"/>
+                    </group>
+                    <field name="leave_availability"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_leave_availability" model="ir.actions.act_window">
+        <field name="name">Leave Availability</field>
+        <field name="res_model">leave.availability</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+    </record>
+
+</odoo>

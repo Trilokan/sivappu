@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_doctor_timing_tree" model="ir.ui.view">
+        <field name="name">doctor.timing.tree</field>
+        <field name="model">doctor.timing</field>
+        <field name="arch" type="xml">
+            <tree string="Doctor Timings">
+                <field name="person_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_doctor_timing_form" model="ir.ui.view">
+        <field name="name">doctor.timing.form</field>
+        <field name="model">doctor.timing</field>
+        <field name="arch" type="xml">
+            <form string="Doctor Timings">
+                <sheet>
+                    <group col="4">
+                        <field name="person_id"/>
+                    </group>
+                    <table id="time_bar">
+                        <tr>
+                            <th>Days</th>
+                            <th>From Time</th>
+                            <th>Till Time</th>
+                            <th rowspan="8" text-align="center"><br>L</br>
+                                                           <br>U</br>
+                                                           <br>N</br>
+                                                           <br>C</br>
+                                                           <br>H</br></th>
+                            <th>From Time</th>
+                            <th>Till Time</th>
+                        </tr>
+                        <tr>
+                            <td align="Left">Monday</td>
+                            <td align="center"><field name="monday_fn_start" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="monday_fn_end" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="monday_an_start" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="monday_fn_end" nolabel="1" widget="float_time"/></td>
+                        </tr>
+                        <tr>
+                            <td align="Left">Tuesday</td>
+                            <td align="center"><field name="tuesday_fn_start" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="tuesday_fn_end" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="tuesday_an_start" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="tuesday_an_end" nolabel="1" widget="float_time"/></td>
+                        </tr>
+                        <tr>
+                            <td align="Left">Wednesday</td>
+                            <td align="center"><field name="wednesday_fn_start" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="wednesday_fn_end" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="wednesday_an_start" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="wednesday_an_end" nolabel="1" widget="float_time"/></td>
+                        </tr>
+                        <tr>
+                            <td align="Left">Thursday</td>
+                            <td align="center"><field name="thursday_fn_start" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="thursday_fn_end" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="thursday_an_start" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="thursday_an_end" nolabel="1" widget="float_time"/></td>
+                        </tr>
+                        <tr>
+                            <td align="Left">Friday</td>
+                            <td align="center"><field name="friday_fn_start" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="friday_an_end" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="friday_fn_start" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="friday_an_end" nolabel="1" widget="float_time"/></td>
+                        </tr>
+                        <tr>
+                            <td align="Left">Saturday</td>
+                            <td align="center"><field name="saturday_fn_start" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="saturday_fn_end" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="saturday_an_start" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="saturday_an_end" nolabel="1" widget="float_time"/></td>
+                        </tr>
+                        <tr>
+                            <td align="Left">Sunday</td>
+                            <td align="center"><field name="sunday_fn_start" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="sunday_fn_end" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="sunday_an_start" nolabel="1" widget="float_time"/></td>
+                            <td align="center"><field name="sunday_an_end" nolabel="1" widget="float_time"/></td>
+                        </tr>
+                    </table>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_doctor_timing" model="ir.actions.act_window">
+        <field name="name">Doctor Timings</field>
+        <field name="res_model">doctor.timing</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

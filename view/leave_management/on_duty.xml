@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_on_duty_application_tree" model="ir.ui.view">
+        <field name="name">on.duty.application.tree</field>
+        <field name="model">on.duty.application</field>
+        <field name="arch" type="xml">
+            <tree string="On-Duty Application">
+                <field name="person_id"/>
+                <field name="reason"/>
+                <field name="total_hours"/>
+                <field name="progress"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_on_duty_application_form" model="ir.ui.view">
+        <field name="name">on.duty.application.form</field>
+        <field name="model">on.duty.application</field>
+        <field name="arch" type="xml">
+            <form string="On-Duty Application">
+                <sheet>
+                    <div id="s_header">
+                        <h1>On-Duty Application</h1>
+                    </div>
+                    <div id="p_header">
+                        <field name="progress" widget="statusbar" style="float: right;padding: 20px;"/>
+                    </div>
+                    <group col="4">
+                        <field name="person_id"/>
+                        <field name="total_hours"/>
+                        <field name="reason"/>
+                    </group>
+                    <field name="line_ids">
+                        <tree editable="bottom">
+                            <field name="date"/>
+                            <field name="total_hours"/>
+                        </tree>
+                    </field>
+                    <footer>
+                        <button name="trigger_confirm" string="Confirm" type="object"
+                                attrs="{'invisible': [('progress', '!=', 'draft')]}"/>
+                        <button name="trigger_cancel" string="Cancel" type="object"
+                                attrs="{'invisible': [('progress', '!=', 'confirmed')]}"/>
+                        <button name="trigger_approve" string="Approve" type="object"
+                                attrs="{'invisible': [('progress', '!=', 'confirmed')]}"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_on_duty_application" model="ir.actions.act_window">
+        <field name="name">On-Duty Application</field>
+        <field name="res_model">on.duty.application</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

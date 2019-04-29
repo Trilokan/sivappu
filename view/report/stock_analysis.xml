@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Form -->
+    <record id="view_report_stock_analysis_form" model="ir.ui.view">
+        <field name="name">report.stock.analysis.form</field>
+        <field name="model">report.stock.analysis</field>
+        <field name="arch" type="xml">
+            <form string="Stock Analysis">
+                <group>
+                    <field name="from_date"/>
+                    <field name="till_date"/>
+                    <field name="report_list"/>
+                    <field name="product_id"/>
+                </group>
+                <footer>
+                    <button name="trigger_stock_analysis" string="Generate Report" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_report_stock_analysis" model="ir.actions.act_window">
+        <field name="name">Stock Analysis</field>
+        <field name="res_model">report.stock.analysis</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

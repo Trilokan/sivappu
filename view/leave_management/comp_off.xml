@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_comp_off_application_tree" model="ir.ui.view">
+        <field name="name">comp.off.application.tree</field>
+        <field name="model">comp.off.application</field>
+        <field name="arch" type="xml">
+            <tree string="Comp-off">
+                <field name="date"/>
+                <field name="person_id"/>
+                <field name="reason"/>
+                <field name="total_days"/>
+                <field name="progress"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_comp_off_application_form" model="ir.ui.view">
+        <field name="name">comp.off.application.form</field>
+        <field name="model">comp.off.application</field>
+        <field name="arch" type="xml">
+            <form string="Comp-off">
+                <sheet>
+                    <div id="s_header">
+                        <h1>Comp-off</h1>
+                    </div>
+                    <div id="p_header">
+                        <field name="progress" widget="statusbar" style="float: right;padding: 20px;"/>
+                    </div>
+                    <group col="4">
+                        <field name="date"/>
+                        <field name="person_id"/>
+                        <field name="total_days"/>
+                        <field name="reason"/>
+                    </group>
+                    <footer>
+                        <button name="trigger_confirm" string="Confirm" type="object"
+                                attrs="{'invisible': [('progress', '!=', 'draft')]}"/>
+                        <button name="trigger_cancel" string="Cancel" type="object"
+                                attrs="{'invisible': [('progress', '!=', 'confirmed')]}"/>
+                        <button name="trigger_approve" string="Approve" type="object"
+                                attrs="{'invisible': [('progress', '!=', 'confirmed')]}"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_comp_off_application" model="ir.actions.act_window">
+        <field name="name">Comp-off</field>
+        <field name="res_model">comp.off.application</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

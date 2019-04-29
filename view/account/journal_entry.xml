@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_journal_entry_tree" model="ir.ui.view">
+        <field name="name">journal.entry.tree</field>
+        <field name="model">journal.entry</field>
+        <field name="arch" type="xml">
+            <tree string="Journal">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="journal_id"/>
+                <field name="period_id"/>
+                <field name="ref"/>
+                <field name="progress"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_journal_entry_form" model="ir.ui.view">
+        <field name="name">journal.entry.form</field>
+        <field name="model">journal.entry</field>
+        <field name="arch" type="xml">
+            <form string="Journal">
+                <sheet>
+                    <field name="progress" widget="statusbar" style="float: right;padding: 20px;"/>
+                    <h2><field name="name"/></h2>
+                    <group>
+                        <field name="date"/>
+                        <field name="journal_id"/>
+                        <field name="period_id"/>
+                        <field name="ref"/>
+                    </group>
+                    <field name="journal_detail">
+                        <tree>
+                            <field name="date"/>
+                            <field name="name"/>
+                            <field name="invoice_id"/>
+                            <field name="person_id"/>
+                            <field name="account_id"/>
+                            <field name="description"/>
+                            <field name="credit"/>
+                            <field name="debit"/>
+                            <field name="progress"/>
+                            <field name="comment"/>
+                        </tree>
+                    </field>
+                    <field name="comment" placeholder="Comment..."/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_journal_entry" model="ir.actions.act_window">
+        <field name="name">Journal</field>
+        <field name="res_model">journal.entry</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

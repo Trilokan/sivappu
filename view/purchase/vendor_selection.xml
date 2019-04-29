@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_vendor_selection_tree" model="ir.ui.view">
+        <field name="name">vendor.selection.tree</field>
+        <field name="model">vendor.selection</field>
+        <field name="arch" type="xml">
+            <tree string="Vendor Selection">
+                <field name="date"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_vendor_selection_form" model="ir.ui.view">
+        <field name="name">vendor.selection.form</field>
+        <field name="model">vendor.selection</field>
+        <field name="arch" type="xml">
+            <form string="Vendor Selection">
+                <sheet>
+                    <div id="s_header">
+                        <h1>Vendor Selection</h1>
+                    </div>
+                    <h2><field name="name"/></h2>
+                    <group col="4">
+                        <field name="date"/>
+                        <field name="id" invisible="1"/>
+                    </group>
+                    <button name="trigger_generate_quote" string="Generate Quote" type="object"/>
+                    <field name="vs_detail">
+                        <tree>
+                            <field name="product_id"/>
+                            <field name="description"/>
+                            <field name="uom_id" readonly="1"/>
+                            <field name="quantity"/>
+                            <field name="person_ids" widget="many2many_tags"/>
+                            <field name="vs_id" invisible="1"/>
+                        </tree>
+                        <form>
+                            <div id="s_header">
+                                <h1>Quote Comparision</h1>
+                            </div>
+                            <group col="4">
+                                <field name="product_id"/>
+                                <field name="description" />
+                                <field name="uom_id"/>
+                                <field name="quantity"/>
+                                <field name="person_ids" widget="many2many_tags"/>
+                                <field name="vs_id" invisible="1"/>
+                            </group>
+                            <separator string="Quotation"/>
+                            <field name="quotation_detail">
+                                <tree editable="bottom" create="false" delete="false">
+                                    <field name="quotation_id" readonly="1"/>
+                                    <field name="person_id" readonly="1"/>
+                                    <field name="product_id" invisible="1"/>
+                                    <field name="uom_id" invisible="1"/>
+                                    <field name="description" invisible="1"/>
+                                    <field name="unit_price" readonly="1"/>
+                                    <field name="quantity" attrs="{'readonly': [('progress', '!=', 'draft')]}"/>
+                                    <field name="discount" readonly="1"/>
+                                    <field name="pf" readonly="1"/>
+                                    <field name="tax_id" readonly="1"/>
+                                    <field name="total" readonly="1"/>
+                                    <field name="progress" invisible="1"/>
+                                </tree>
+                            </field>
+                            <separator string="Last 5 Purchase"/>
+                            <field name="price_ids">
+                                <tree>
+                                    <field name="date"/>
+                                    <field name="invoice_id"/>
+                                    <field name="person_id"/>
+                                    <field name="description"/>
+                                    <field name="unit_price"/>
+                                    <field name="quantity"/>
+                                    <field name="discount"/>
+                                    <field name="pf"/>
+                                    <field name="tax_id"/>
+                                    <field name="total"/>
+                                </tree>
+                            </field>
+                        </form>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_vendor_selection" model="ir.actions.act_window">
+        <field name="name">Vendor Selection</field>
+        <field name="res_model">vendor.selection</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

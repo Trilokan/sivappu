@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_arc_appointment_my_tree" model="ir.ui.view">
+        <field name="name">arc.appointment.my.tree</field>
+        <field name="model">arc.appointment</field>
+        <field name="arch" type="xml">
+            <tree string="My Appointments" create="false" edit="false" delete="false">
+                <field name="date"/>
+                <field name="person_id"/>
+                <field name="appointment_type" invisible="1"/>
+                <field name="appointment_for"/>
+                <field name="reason"/>
+                <field name="comment"/>
+                <field name="is_cancel"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_arc_appointment_my_form" model="ir.ui.view">
+        <field name="name">arc.appointment.my.form</field>
+        <field name="model">arc.appointment</field>
+        <field name="arch" type="xml">
+            <form string="My Appointments" create="false" edit="false" delete="false">
+                <sheet>
+                    <field name="is_cancel" widget="statusbar" style="float: right;padding: 20px;" attrs="{'invisible':[('is_cancel', '=', 'cancel')]}"/>
+                    <group col="4">
+                        <field name="date"/>
+                        <field name="appointment_for" string="Appointment With"/>
+                        <field name="reason"/>
+                    </group>
+                    <field name="person_id" invisible="1"/>
+                    <field name="appointment_type" invisible="1"/>
+                    <field name="comment" placeholder="Comment..."/>
+                    <button name="trigger_cancel" string="Cancel" type="object" attrs="{'invisible': [('is_cancel', '=', 'cancel')]}"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_arc_appointment_my_calendar" model="ir.ui.view">
+        <field name="name">arc.appointment.my.calendar</field>
+        <field name="model">arc.appointment</field>
+        <field name="arch" type="xml">
+            <calendar string="My Appointments"
+                      color="person_id"
+                      date_start="date"
+                      mode="month"
+                      quick_add="False" create="false" edit="false" delete="false">
+                <field name="person_id"/>
+                <field name="appointment_for"/>
+                <field name="reason"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_arc_appointment_my" model="ir.actions.act_window">
+        <field name="name">My Appointments</field>
+        <field name="res_model">arc.appointment</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">calendar,tree,form</field>
+        <field name="view_id" ref="view_arc_appointment_my_tree"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_arc_appointment_my_form">
+        <field eval="2" name="sequence"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_arc_appointment_my_form" />
+        <field name="act_window_id" ref="action_arc_appointment_my"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_arc_appointment_my_tree">
+        <field eval="1" name="sequence"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_arc_appointment_my_tree"/>
+        <field name="act_window_id" ref="action_arc_appointment_my"/>
+    </record>
+
+
+</odoo>

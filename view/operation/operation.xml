@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree -->
+    <record id="view_arc_operation_tree" model="ir.ui.view">
+        <field name="name">arc.operation.tree</field>
+        <field name="model">arc.operation</field>
+        <field name="arch" type="xml">
+            <tree string="List Of Operation">
+                <field name="name"/>
+                <field name="operation_uid"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_arc_operation_form" model="ir.ui.view">
+        <field name="name">arc.operation.form</field>
+        <field name="model">arc.operation</field>
+        <field name="arch" type="xml">
+            <form string="List Of Operation">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="operation_uid"/>
+                        <field name="attachment_ids" widget="many2many_binary"/>
+                        <field name="procedure"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_arc_operation" model="ir.actions.act_window">
+        <field name="name">List Of Operation</field>
+        <field name="res_model">arc.operation</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
